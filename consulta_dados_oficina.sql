@@ -35,11 +35,11 @@ select DATE_FORMAT(PaymentDate, '%Y-%m') as Mês, SUM(Amount) as Receita_Total f
 	order by Mês DESC;
 
 -- 7. Peças usadas em mais de um tipo de serviço
-SELECT ps.PartName as Peças, COUNT(*) AS Contagem_Serviço
-FROM ServiceParts sp
-JOIN PartsStock ps ON sp.idPart = ps.idPart
-GROUP BY ps.idPart
-HAVING COUNT(*) > 1;
+select ps.PartName as Peças, COUNT(*) AS Contagem_Serviço from ServiceParts sp
+	join PartsStock ps ON sp.idPart = ps.idPart
+	group by ps.idPart
+	having COUNT(*) > 1;
+
 
 
 
